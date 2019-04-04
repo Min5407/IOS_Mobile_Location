@@ -10,8 +10,12 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+   
+    var objects = [Location]()
+    
+ 
+    
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
 
 
     override func viewDidLoad() {
@@ -25,32 +29,62 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
+      
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        performSegue(withIdentifier: "addWay", sender: self)
     }
+    
+    
 
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+            
         }
+        
+        if segue.identifier == "addWay"{
+            let addVC = (segue.destination) as! AddViewController
+            addVC.addObjects = objects
+        }
+        
+      
+        
+
+    }
+    
+    
+    /// moving the one cell in the different cell in the masterView
+    ///
+    /// - Parameters:
+    ///   - tableView: UItableView
+    ///   - sourceIndexPath: source index path
+    ///   - destinationIndexPath: destination index path
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let move =  objects[sourceIndexPath.item]
+        objects.remove(at: sourceIndexPath.item)
+        objects.insert(move, at: destinationIndexPath.item)
+        
+//
+        
+
     }
 
     // MARK: - Table View
@@ -64,10 +98,12 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row]
+        cell.textLabel!.text = object.name
+
         return cell
     }
 

@@ -15,6 +15,10 @@
 		390A89EB2255CF4D002D2BE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390A89E92255CF4D002D2BE8 /* LaunchScreen.storyboard */; };
 		390A89F62255CF4D002D2BE8 /* milestone_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A89F52255CF4D002D2BE8 /* milestone_1Tests.swift */; };
 		390A8A012255CF4D002D2BE8 /* milestone_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A002255CF4D002D2BE8 /* milestone_1UITests.swift */; };
+		390A8A102255CF79002D2BE8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A0F2255CF79002D2BE8 /* Location.swift */; };
+		390A8A112255CF79002D2BE8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A0F2255CF79002D2BE8 /* Location.swift */; };
+		390A8A132255D573002D2BE8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A122255D573002D2BE8 /* AddViewController.swift */; };
+		390A8A142255D573002D2BE8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A122255D573002D2BE8 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 		390A89FC2255CF4D002D2BE8 /* milestone 1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "milestone 1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		390A8A002255CF4D002D2BE8 /* milestone_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = milestone_1UITests.swift; sourceTree = "<group>"; };
 		390A8A022255CF4E002D2BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		390A8A0F2255CF79002D2BE8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		390A8A122255D573002D2BE8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		390A89D22255CF4B002D2BE8 = {
 			isa = PBXGroup;
 			children = (
+				390A8A0E2255CF61002D2BE8 /* Model */,
 				390A89DD2255CF4B002D2BE8 /* milestone 1 */,
 				390A89F42255CF4D002D2BE8 /* milestone 1Tests */,
 				390A89FF2255CF4D002D2BE8 /* milestone 1UITests */,
@@ -102,6 +109,7 @@
 				390A89DE2255CF4B002D2BE8 /* AppDelegate.swift */,
 				390A89E02255CF4B002D2BE8 /* MasterViewController.swift */,
 				390A89E22255CF4B002D2BE8 /* DetailViewController.swift */,
+				390A8A122255D573002D2BE8 /* AddViewController.swift */,
 				390A89E42255CF4B002D2BE8 /* Main.storyboard */,
 				390A89E72255CF4D002D2BE8 /* Assets.xcassets */,
 				390A89E92255CF4D002D2BE8 /* LaunchScreen.storyboard */,
@@ -126,6 +134,14 @@
 				390A8A022255CF4E002D2BE8 /* Info.plist */,
 			);
 			path = "milestone 1UITests";
+			sourceTree = "<group>";
+		};
+		390A8A0E2255CF61002D2BE8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				390A8A0F2255CF79002D2BE8 /* Location.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				390A8A132255D573002D2BE8 /* AddViewController.swift in Sources */,
 				390A89E32255CF4B002D2BE8 /* DetailViewController.swift in Sources */,
 				390A89E12255CF4B002D2BE8 /* MasterViewController.swift in Sources */,
+				390A8A102255CF79002D2BE8 /* Location.swift in Sources */,
 				390A89DF2255CF4B002D2BE8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				390A8A112255CF79002D2BE8 /* Location.swift in Sources */,
 				390A89F62255CF4D002D2BE8 /* milestone_1Tests.swift in Sources */,
+				390A8A142255D573002D2BE8 /* AddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
