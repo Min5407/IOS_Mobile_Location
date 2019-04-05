@@ -138,7 +138,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwv-ew-Wmb">
-                                        <rect key="frame" x="162" y="143" width="85" height="21"/>
+                                        <rect key="frame" x="161.5" y="143" width="85" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="85" id="E67-2o-A51"/>
                                         </constraints>
@@ -153,7 +153,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueQ-ng-wUK">
-                                        <rect key="frame" x="171" y="26" width="45" height="21"/>
+                                        <rect key="frame" x="171.5" y="26" width="45" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -184,7 +184,6 @@
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="Save:" destination="IcG-sy-p9u" eventType="touchUpInside" id="PaQ-Z8-T6g"/>
-                                            <segue destination="7bK-jq-Zjz" kind="show" identifier="saveWay" id="IWB-4F-Wf7"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="longitue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-yF-Xnq">
@@ -235,6 +234,8 @@
                         <outlet property="latTextField" destination="VtP-IS-gTi" id="Uc5-KY-rZA"/>
                         <outlet property="longTextField" destination="wT8-i9-gVb" id="KIi-fr-bzB"/>
                         <outlet property="nameTextField" destination="frl-Ee-r2M" id="nIN-IL-sT2"/>
+                        <outlet property="scrollView" destination="Qxt-PO-K1g" id="58L-Jo-XGp"/>
+                        <segue destination="7bK-jq-Zjz" kind="showDetail" identifier="saveWay" id="76W-VG-Cjo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ds9-33-v7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,6 +261,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
-        <segue reference="IWB-4F-Wf7"/>
+        <segue reference="76W-VG-Cjo"/>
     </inferredMetricsTieBreakers>
 </document>

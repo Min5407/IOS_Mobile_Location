@@ -15,6 +15,9 @@ class AddViewController: UIViewController {
     var addObjects = [Location]()
     let count = 0
 
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var nameTextField: UITextField!
    
     @IBOutlet weak var addressTextField: UITextField!
@@ -49,6 +52,7 @@ class AddViewController: UIViewController {
         if count == saveCount{
             performSegue(withIdentifier: "saveWay", sender: self)
             saveCount += 1
+        
         }
         
     }
@@ -60,28 +64,85 @@ class AddViewController: UIViewController {
     
     
    
-    
+    var activeField: UITextField?
+
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // tap anywhere to hide the keyboard
+        let tap =  UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
+        // move the screen when keyboard appears
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardhide(notifacation:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         
         
         // Do any additional setup after loading the view.
     }
     
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        nameTextField.delegate = self
+        addressTextField.delegate = self
+        longTextField.delegate = self
+        latTextField.delegate = self
+        
+        self.activeField = UITextField()
+        
+        
     }
-    */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+ 
+    /// function for dissmissing keyboard
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    /// keyboard will show with after pushing the contents up by calculating the height
+    ///
+    /// - Parameter notification: notification
+    @objc func keyboardWillShow(notification: Notification){
+        guard let keyboardInfo = notification.userInfo else{return}
+        if let keyboardSize = (keyboardInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size{
+            let keyboardHeight = keyboardSize.height + 10
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+            self.scrollView.contentInset = contentInsets
+            var viewRect = self.view.frame
+            viewRect.size.height -= keyboardHeight
+            guard let activeField = self.activeField else {return}
+            if(!viewRect.contains(activeField.frame.origin)){
+                let scrollPoint = CGPoint(x: 0, y: activeField.frame.origin.y - keyboardHeight)
+                self.scrollView.setContentOffset(scrollPoint, animated: true)
+            }
+        }
+    }
+    
+    /// keyboard will hide
+    ///
+    /// - Parameter notifacation: notifacation
+    @objc func keyboardhide(notifacation:Notification){
+        let contentInsets = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInsets
+    }
+    
 
+}
+
+extension AddViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.activeField = nil
+        return true
+    }
 }
 
 

@@ -19,6 +19,8 @@
 		390A8A112255CF79002D2BE8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A0F2255CF79002D2BE8 /* Location.swift */; };
 		390A8A132255D573002D2BE8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A122255D573002D2BE8 /* AddViewController.swift */; };
 		390A8A142255D573002D2BE8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A8A122255D573002D2BE8 /* AddViewController.swift */; };
+		391B5503225725E60003DB3B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A89E02255CF4B002D2BE8 /* MasterViewController.swift */; };
+		391B55042257260C0003DB3B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A89E22255CF4B002D2BE8 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,7 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391B5503225725E60003DB3B /* MasterViewController.swift in Sources */,
 				390A8A112255CF79002D2BE8 /* Location.swift in Sources */,
+				391B55042257260C0003DB3B /* DetailViewController.swift in Sources */,
 				390A89F62255CF4D002D2BE8 /* milestone_1Tests.swift in Sources */,
 				390A8A142255D573002D2BE8 /* AddViewController.swift in Sources */,
 			);
