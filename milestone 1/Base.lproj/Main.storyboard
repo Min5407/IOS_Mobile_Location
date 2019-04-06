@@ -63,7 +63,6 @@
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
                 <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
@@ -71,6 +70,7 @@
                         <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
                     </connections>
                 </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
@@ -123,7 +123,6 @@
         <!--Add View Controller-->
         <scene sceneID="rVo-Hm-QHB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ds9-33-v7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="IcG-sy-p9u" customClass="AddViewController" customModule="milestone_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="twz-pl-mFr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -242,6 +241,7 @@
                         <segue destination="7bK-jq-Zjz" kind="showDetail" identifier="saveWay" id="76W-VG-Cjo"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ds9-33-v7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2943.1999999999998" y="-630.13493253373315"/>
         </scene>
