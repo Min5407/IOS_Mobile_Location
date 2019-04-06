@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 
 class AddViewController: UIViewController {
+    
     
     var addObjects = [Location]()
     let count = 0
@@ -47,7 +48,7 @@ class AddViewController: UIViewController {
         }
         
         
-        addObjects.append(Location(name: name, address: address, lat: long, long: lat))
+        addObjects.append(Location(name: name, address: address, lat: lat, long: long))
         
         if count == saveCount{
             performSegue(withIdentifier: "saveWay", sender: self)
@@ -61,6 +62,8 @@ class AddViewController: UIViewController {
         let masterVC = (segue.destination) as! MasterViewController
         masterVC.objects = addObjects
     }
+    
+  
     
     
    
@@ -80,7 +83,7 @@ class AddViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardhide(notifacation:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
-        
+      
         // Do any additional setup after loading the view.
     }
     
@@ -143,6 +146,25 @@ extension AddViewController: UITextFieldDelegate{
         self.activeField = nil
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressTextField.text!) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            guard
+                let lat = placemark?.location?.coordinate.latitude,
+                let lon = placemark?.location?.coordinate.longitude
+                else{
+                    return
+            }
+            
+            self.longTextField.text! = "\(lon)"
+            self.latTextField.text! = "\(lat)"
+        }
+    }
+    
+   
 }
 
 
