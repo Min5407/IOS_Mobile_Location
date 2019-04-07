@@ -106,8 +106,7 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = "\(object.name): \(object.address)"
-
+        cell.textLabel!.text = "\(object.name)"
         return cell
     }
 

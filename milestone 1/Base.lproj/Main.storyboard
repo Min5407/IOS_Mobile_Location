@@ -212,7 +212,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxt-PO-K1g">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="frl-Ee-r2M">
                                         <rect key="frame" x="82" y="76" width="237" height="30"/>
@@ -313,7 +313,11 @@
                         <viewLayoutGuide key="safeArea" id="k8w-Gg-OQz"/>
                     </view>
                     <navigationItem key="navigationItem" id="ptY-Vh-q81">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="SFT-hs-gXE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="SFT-hs-gXE">
+                            <connections>
+                                <action selector="cancel:" destination="IcG-sy-p9u" id="aiU-ey-4s1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="bL7-qD-Xvs" id="eYo-Ns-VOV"/>
@@ -348,7 +352,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ciP-xQ-lHd"/>
-        <segue reference="UYf-SU-d8w"/>
+        <segue reference="U4z-Kf-BIe"/>
+        <segue reference="76W-VG-Cjo"/>
     </inferredMetricsTieBreakers>
 </document>

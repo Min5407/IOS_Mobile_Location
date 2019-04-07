@@ -36,6 +36,12 @@ class DetailViewController: UIViewController {
         guard let diAddress = detailItem, let address = addressTextField.text else{return}
         diAddress.address = address
         detailObject[index].address = address
+        guard let diLong = detailItem, let long = longTextField.text else{return}
+        diLong.long = Double(long)!
+        detailObject[index].long = Double(long)!
+        guard  let diLat = detailItem, let lat = latTextField.text else {return}
+        diLat.lat = Double(lat)!
+        detailObject[index].lat = Double(lat)!
     
 
         performSegue(withIdentifier: "updateWay", sender: self)
@@ -96,9 +102,6 @@ class DetailViewController: UIViewController {
     }
     
 
- 
-
-    
     
 
     var detailItem: Location? {
@@ -118,7 +121,18 @@ extension DetailViewController: UITextFieldDelegate {
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressTextField.text!) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            guard
+                let lat = placemark?.location?.coordinate.latitude,
+                let lon = placemark?.location?.coordinate.longitude
+                else{
+                    return
+            }
+            self.longTextField.text! = "\(lon)"
+            self.latTextField.text! = "\(lat)"
 
         
         }
@@ -130,3 +144,4 @@ extension DetailViewController: UITextFieldDelegate {
     
 
 
+}

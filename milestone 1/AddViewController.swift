@@ -27,6 +27,9 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var latTextField: UITextField!
     
+    @IBAction func cancel(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func Save(_ sender: UIButton) {
         var saveCount = 0
