@@ -158,7 +158,6 @@ extension AddViewController: UITextFieldDelegate{
                 else{
                     return
             }
-            
             self.longTextField.text! = "\(lon)"
             self.latTextField.text! = "\(lat)"
         }
